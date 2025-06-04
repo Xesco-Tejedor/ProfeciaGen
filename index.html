@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ProfeciaGen - Generador de Profecías</title>
-    <link rel="icon" href="assets/burning.png" type="image/x-icon"> {/* CAMBIO: Icono */}
+    <link rel="icon" href="assets/burning.png" type="image/x-icon">
     <style>
         :root {
             --primary-color: #007bff; /* Azul primario */
@@ -165,7 +165,7 @@
             cursor: pointer;
             box-shadow: 0 1px 3px rgba(0,0,0,0.2);
         }
-        #rebuscadoSliderValue { /* ID se mantiene, pero la etiqueta cambió */
+        #rebuscadoSliderValue { 
             font-weight: bold;
             color: var(--primary-color);
             background-color: #e9ecef;
@@ -199,7 +199,7 @@
         }
         #clearApiKeyBtn { background-color: var(--error-color); }
         #clearApiKeyBtn:hover:not(:disabled) { background-color: var(--button-hover-error); }
-        #generateButton { background-color: var(--success-color); } /* CAMBIO: Botón de generar ahora es para profecías */
+        #generateButton { background-color: var(--success-color); }
         #generateButton:hover:not(:disabled) { background-color: var(--button-hover-success); }
         #exportHistoryBtn {
             background-color: var(--info-color);
@@ -216,7 +216,7 @@
         .output-section {
             margin-top: 30px;
         }
-        /* CAMBIO: Clase renombrada si se desea mayor consistencia, pero no es estrictamente necesario */
+        
         .prophecy-details-container { 
             margin-top: 15px;
             padding: 10px;
@@ -224,7 +224,7 @@
             border: 1px dashed var(--border-color); 
             border-radius: 4px;
         }
-        /* CAMBIO: IDs de los outputs */
+        
         #prophecyTextOutput, #prophecyTitleOutput, #prophecySymbolOutput, #prophecyInterpretationOutput {
             background-color: #e9ecef;
             padding: 15px;
@@ -309,7 +309,7 @@
             margin-bottom: 5px;
             font-weight: bold;
         }
-        /* CAMBIO: Clases CSS para el historial */
+        
         .history-entry .history-prophecy-text {
             background-color: #f0f2f5; 
             padding: 10px;
@@ -326,7 +326,7 @@
             white-space: pre-wrap;
             word-wrap: break-word;
         }
-        .history-entry .history-title, .history-entry .history-symbol { /* CAMBIO */
+        .history-entry .history-title, .history-entry .history-symbol {
              font-style: italic;
         }
         #historyEntriesContainer .no-history {
@@ -346,8 +346,8 @@
 </head>
 <body>
     <div class="container">
-        <h1>🥠 ProfeciaGen</h1> {/* CAMBIO */}
-        <p>Introduce un tema, pregunta o situación, ajusta qué tan enigmática quieres la profecía, y deja que la IA te revele un vaticinio misterioso, su posible título e interpretación.</p> {/* CAMBIO */}
+        <h1>🥠 ProfeciaGen</h1>
+        <p>Introduce un tema, pregunta o situación, ajusta qué tan enigmática quieres la profecía, y deja que la IA te revele un vaticinio misterioso, su posible título e interpretación.</p>
 
         <div class="api-key-section">
             <h2>Configuración de API Key</h2>
@@ -360,52 +360,52 @@
             <div id="apiKeyStatus" aria-live="polite">Introduce tu clave para activar la generación. La clave se guarda localmente en tu navegador.</div>
             <p>
                 Consigue tu clave en <a href="https://openrouter.ai/keys" target="_blank" rel="noopener noreferrer">OpenRouter.ai</a>.
-                ProfeciaGen necesita una clave válida para generar texto. {/* CAMBIO */}
+                ProfeciaGen necesita una clave válida para generar texto.
             </p>
         </div>
 
         <section class="input-section">
-            <h2>Paso 1: Define tu Consulta</h2> {/* CAMBIO */}
+            <h2>Paso 1: Define tu Consulta</h2>
             <div class="form-group">
-                <label for="userInput">Introduce un tema, pregunta o situación:</label> {/* CAMBIO */}
-                <input type="text" id="userInput" placeholder="Ej: 'El destino de mi viaje', '¿Lloverá mañana?', 'Tiempos de cambio'"> {/* CAMBIO */}
+                <label for="userInput">Introduce un tema, pregunta o situación:</label>
+                <input type="text" id="userInput" placeholder="Ej: 'El destino de mi viaje', '¿Lloverá mañana?', 'Tiempos de cambio'">
             </div>
 
-            <h2>Paso 2: Nivel de Misticismo</h2> {/* CAMBIO */}
+            <h2>Paso 2: Nivel de Misticismo</h2>
             <div class="form-group">
-                <label for="rebuscadoSlider">Qué tan críptica/enigmática quieres la profecía:</label> {/* CAMBIO */}
+                <label for="rebuscadoSlider">Qué tan críptica/enigmática quieres la profecía:</label>
                 <div class="slider-container">
                     <input type="range" id="rebuscadoSlider" min="0" max="100" value="50">
                     <span id="rebuscadoSliderValue">50</span>
                 </div>
             </div>
             
-            <button id="generateButton" disabled>Generar Profecía con IA</button> {/* CAMBIO */}
+            <button id="generateButton" disabled>Generar Profecía con IA</button>
         </section>
 
         <section class="output-section">
-            <h2>Profecía Revelada:</h2> {/* CAMBIO */}
+            <h2>Profecía Revelada:</h2>
             <div id="loadingIndicator">
-                <p>Tejiendo los hilos del destino... 🔮</p> {/* CAMBIO */}
+                <p>Tejiendo los hilos del destino... 🔮</p>
                 <div class="spinner"></div>
             </div>
 
-            {/* CAMBIO: ID del output principal */}
+            
             <div id="prophecyTextOutput"><p>Aquí aparecerá el texto de la profecía revelada...</p></div>
 
-            {/* CAMBIO: Clase del contenedor de detalles y IDs internos */}
+            
             <div id="prophecyDetailsContainer" class="prophecy-details-container" style="display: none;">
-                <h3>Título de la Profecía:</h3> {/* CAMBIO */}
-                <div id="prophecyTitleOutput"><p>...</p></div> {/* CAMBIO */}
+                <h3>Título de la Profecía:</h3>
+                <div id="prophecyTitleOutput"><p>...</p></div>
                 
-                {/* CAMBIO: Sección para Símbolo Clave (antes Nombre en Latín) */}
+                
                 <div id="prophecySymbolSection" style="display: none;"> 
-                    <h3>Símbolo Clave:</h3> {/* CAMBIO */}
-                    <div id="prophecySymbolOutput"><p>...</p></div> {/* CAMBIO */}
+                    <h3>Símbolo Clave:</h3>
+                    <div id="prophecySymbolOutput"><p>...</p></div>
                 </div>
                 
-                <h3>Interpretación:</h3> {/* CAMBIO */}
-                <div id="prophecyInterpretationOutput"><p>...</p></div> {/* CAMBIO */}
+                <h3>Interpretación:</h3>
+                <div id="prophecyInterpretationOutput"><p>...</p></div>
             </div>
 
             <div id="apiErrorOutput" class="error-message" style="display: none;"></div>
@@ -413,22 +413,23 @@
 
         <section id="historySection" class="history-section" style="display: none;">
             <div class="history-header">
-                <h2 id="historyTitle">Historial</h2> {/* El título se actualiza dinámicamente por JS */}
+                <h2 id="historyTitle">Historial</h2> 
                 <button id="exportHistoryBtn" disabled>Exportar (MD)</button>
             </div>
             <div id="historyEntriesContainer">
-                </div>
+                
+            </div>
         </section>
 
     </div>
 
     <footer>
-        <p>© 2025 ProfeciaGen. Creado con fines de entretenimiento y exploración creativa.</p> {/* CAMBIO */}
+        <p>© 2025 ProfeciaGen. Creado con fines de entretenimiento y exploración creativa.</p>
     </footer>
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        console.log('[ProfeciaGen] DOM completamente cargado y parseado.'); // CAMBIO
+        console.log('[ProfeciaGen] DOM completamente cargado y parseado.'); 
 
         const userInput = document.getElementById('userInput');
         const rebuscadoSlider = document.getElementById('rebuscadoSlider');
@@ -440,9 +441,9 @@
         const generateButton = document.getElementById('generateButton');
         const loadingIndicator = document.getElementById('loadingIndicator');
         
-        // CAMBIO: Referencias a elementos de salida
+        
         const prophecyTextOutputParagraph = document.getElementById('prophecyTextOutput').querySelector('p');
-        const prophecyDetailsContainer = document.getElementById('prophecyDetailsContainer'); // Asumiendo que el ID del contenedor también cambia o la clase prophecy-details-container
+        const prophecyDetailsContainer = document.getElementById('prophecyDetailsContainer'); 
         const prophecyTitleOutputParagraph = document.getElementById('prophecyTitleOutput').querySelector('p');
         const prophecySymbolSection = document.getElementById('prophecySymbolSection');
         const prophecySymbolOutputParagraph = document.getElementById('prophecySymbolOutput').querySelector('p');
@@ -455,7 +456,7 @@
         const historyEntriesContainer = document.getElementById('historyEntriesContainer');
         const exportHistoryBtn = document.getElementById('exportHistoryBtn');
 
-        // CAMBIO: Claves de LocalStorage
+        
         const API_KEY_STORAGE_KEY = 'profeciaGenApiKey';
         const HISTORY_STORAGE_KEY = 'profeciaGenHistory';
         let currentApiKey = null;
@@ -470,21 +471,21 @@
         function escapeHtml(unsafe) {
             if (typeof unsafe !== 'string') return '';
             return unsafe
-                 .replace(/&/g, "&amp;") // Corregido: & a &amp;
-                 .replace(/</g, "&lt;")  // Corregido: < a &lt;
-                 .replace(/>/g, "&gt;")  // Corregido: > a &gt;
+                 .replace(/&/g, "&amp;") 
+                 .replace(/</g, "&lt;")  
+                 .replace(/>/g, "&gt;")  
                  .replace(/"/g, "&quot;")
-                 .replace(/'/g, "&#039;"); // Corregido: ' a &#039;
+                 .replace(/'/g, "&#039;"); 
         }
 
         function loadAllHistory() {
-            console.log('[ProfeciaGen][Historial] Intentando cargar historial desde localStorage.'); // CAMBIO
+            console.log('[ProfeciaGen][Historial] Intentando cargar historial desde localStorage.'); 
             const storedHistory = localStorage.getItem(HISTORY_STORAGE_KEY);
             if (storedHistory) {
                 try {
                     allHistoryData = JSON.parse(storedHistory);
                 } catch (e) {
-                    console.error("[ProfeciaGen][Historial] Error al parsear historial desde localStorage:", e); // CAMBIO
+                    console.error("[ProfeciaGen][Historial] Error al parsear historial desde localStorage:", e); 
                     allHistoryData = {};
                     localStorage.removeItem(HISTORY_STORAGE_KEY); 
                 }
@@ -504,7 +505,7 @@
             try {
                 localStorage.setItem(HISTORY_STORAGE_KEY, JSON.stringify(allHistoryData));
             } catch (e) {
-                console.error('[ProfeciaGen][Historial] Error al guardar historial en localStorage:', e); // CAMBIO
+                console.error('[ProfeciaGen][Historial] Error al guardar historial en localStorage:', e); 
             }
         }
 
@@ -534,7 +535,7 @@
                 allHistoryData[normalizedTerm].forEach((entry) => {
                     const entryDiv = document.createElement('div');
                     entryDiv.className = 'history-entry';
-                    // CAMBIO: Lógica para Símbolo Clave en historial
+                    
                     let symbolHTML = '';
                     if (entry.simbolo_clave && entry.simbolo_clave.trim() !== '' && entry.simbolo_clave.toLowerCase() !== 'n/a') {
                         symbolHTML = `
@@ -544,8 +545,8 @@
                     }
                     const entryDate = new Date(entry.timestamp);
                     const formattedTimestamp = entryDate.toLocaleString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' });
-                    const rebuscadoInfo = entry.rebuscadoLevel !== undefined ? ` (Nivel Misticismo: ${entry.rebuscadoLevel})` : ''; // CAMBIO ETIQUETA
-                    // CAMBIO: Estructura HTML de la entrada del historial
+                    const rebuscadoInfo = entry.rebuscadoLevel !== undefined ? ` (Nivel Misticismo: ${entry.rebuscadoLevel})` : ''; 
+                    
                     entryDiv.innerHTML = `
                         <p class="history-meta">Generado: ${formattedTimestamp}${rebuscadoInfo}</p>
                         <div class="history-prophecy-text">${escapeHtml(entry.texto_profecia)}</div>
@@ -573,7 +574,7 @@
         }
 
         function loadApiKey() {
-            console.log('[ProfeciaGen][API Key] Cargando API Key desde localStorage.'); // CAMBIO
+            console.log('[ProfeciaGen][API Key] Cargando API Key desde localStorage.'); 
             const storedKey = localStorage.getItem(API_KEY_STORAGE_KEY);
             if (storedKey && isValidApiKeyFormat(storedKey)) { 
                 currentApiKey = storedKey;
@@ -654,11 +655,11 @@
             const historyForTerm = allHistoryData[normalizedTerm];
 
             if (!historyForTerm || historyForTerm.length === 0) {
-                alert(`No hay historial para el término "${escapeHtml(term)}" para exportar.`);
+                 alert(`No hay historial para el término "${escapeHtml(term)}" para exportar.`);
                 return;
             }
 
-            // CAMBIO: Contenido Markdown
+            
             let markdownContent = `# Historial de Profecías para: "${term}"\n\n`;
 
             historyForTerm.forEach((entry, index) => {
@@ -667,16 +668,16 @@
                     day: '2-digit', month: '2-digit', year: 'numeric', 
                     hour: '2-digit', minute: '2-digit', second: '2-digit' 
                 });
-                const rebuscadoInfo = entry.rebuscadoLevel !== undefined ? ` (Nivel Misticismo: ${entry.rebuscadoLevel})` : ''; // CAMBIO ETIQUETA
+                const rebuscadoInfo = entry.rebuscadoLevel !== undefined ? ` (Nivel Misticismo: ${entry.rebuscadoLevel})` : ''; 
 
-                markdownContent += `## Profecía Revelada el ${formattedTimestamp}${rebuscadoInfo}\n\n`; // CAMBIO
-                const prophecyTextForMd = entry.texto_profecia.replace(/\n/g, '\n> '); // CAMBIO
+                markdownContent += `## Profecía Revelada el ${formattedTimestamp}${rebuscadoInfo}\n\n`; 
+                const prophecyTextForMd = entry.texto_profecia.replace(/\n/g, '\n> '); 
                 markdownContent += `> ${prophecyTextForMd}\n\n`;
-                markdownContent += `**Título de la Profecía:** ${entry.titulo_profecia}\n`; // CAMBIO
-                if (entry.simbolo_clave && entry.simbolo_clave.trim() !== '' && entry.simbolo_clave.toLowerCase() !== 'n/a') { // CAMBIO
-                    markdownContent += `**Símbolo Clave:** ${entry.simbolo_clave}\n`; // CAMBIO
+                markdownContent += `**Título de la Profecía:** ${entry.titulo_profecia}\n`; 
+                if (entry.simbolo_clave && entry.simbolo_clave.trim() !== '' && entry.simbolo_clave.toLowerCase() !== 'n/a') { 
+                    markdownContent += `**Símbolo Clave:** ${entry.simbolo_clave}\n`; 
                 }
-                markdownContent += `**Interpretación:**\n${entry.interpretacion_profecia}\n\n`; // CAMBIO
+                markdownContent += `**Interpretación:**\n${entry.interpretacion_profecia}\n\n`; 
                 
                 if (index < historyForTerm.length - 1) {
                     markdownContent += "---\n\n"; 
@@ -685,7 +686,7 @@
 
             const blob = new Blob([markdownContent], { type: 'text/markdown;charset=utf-8' });
             const sanitizedTerm = term.replace(/[^\w\s.-]/gi, '').replace(/\s+/g, '_').substring(0, 50) || "export";
-            // CAMBIO: Nombre de archivo
+            
             const filename = `ProfeciaGen_Historial_${sanitizedTerm}.md`;
             
             const link = document.createElement('a');
@@ -719,7 +720,7 @@
             const rebuscadoLevel = parseInt(rebuscadoSlider.value); 
             
             if (!userText) {
-                alert('Por favor, introduce un tema, pregunta o situación.'); // CAMBIO
+                alert('Por favor, introduce un tema, pregunta o situación.'); 
                 userInput.focus();
                 return;
             }
@@ -731,20 +732,20 @@
 
             isGenerating = true;
             loadingIndicator.style.display = 'block';
-            // CAMBIO: Mensaje de carga y ocultar detalles
+            
             prophecyTextOutputParagraph.textContent = 'Tejiendo los hilos del destino...'; 
             prophecyDetailsContainer.style.display = 'none';
             apiErrorOutput.style.display = 'none';
             updateAllButtonStates();
 
             try {
-                // CAMBIO: Descripciones de complejidad/misticismo
+                
                 let complexityDescription = "clara y directa";
                 if (rebuscadoLevel > 75) complexityDescription = "profundamente críptica, simbólica y abierta a múltiples interpretaciones";
                 else if (rebuscadoLevel > 50) complexityDescription = "bastante enigmática y metafórica";
                 else if (rebuscadoLevel > 25) complexityDescription = "con un toque de misterio y simbolismo";
 
-                // CAMBIO: Prompt para la IA
+                
                 const prompt = `Eres un Oráculo ancestral, un Vidente místico capaz de escudriñar los velos del tiempo y el destino.
 Tu tarea es generar una PROFECÍA o VATICINIO enigmático y evocador, basado en el siguiente tema, pregunta o situación proporcionada por el usuario: "${userText}".
 La profecía debe tener un nivel de misticismo y "rebuscamiento" ${complexityDescription} (correspondiente a un nivel de ${rebuscadoLevel} sobre 100).
@@ -761,13 +762,13 @@ Genera la profecía para el tema: "${userText}" con el nivel de misticismo ${com
                 const openRouterApiUrl = 'https://openrouter.ai/api/v1/chat/completions';
                 const modelToUse = 'openai/gpt-3.5-turbo'; 
                 let httpReferer = `${window.location.protocol}//${window.location.hostname || 'localhost'}`;
-                if (!window.location.hostname) httpReferer = "http://localhost-profeciagen"; // CAMBIO: Fallback referer
+                if (!window.location.hostname) httpReferer = "http://localhost-profeciagen"; 
                 
                 const requestHeaders = {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${currentApiKey}`,
                     'HTTP-Referer': httpReferer, 
-                    'X-Title': 'ProfeciaGen' // CAMBIO: X-Title
+                    'X-Title': 'ProfeciaGen' 
                 };
                 const requestBody = { model: modelToUse, messages: [{ role: 'user', content: prompt }], temperature: 0.7, max_tokens: 600 };
 
@@ -792,7 +793,7 @@ Genera la profecía para el tema: "${userText}" con el nivel de misticismo ${com
                     try {
                         const cleanedContent = rawContent.replace(/^```json\s*|```\s*$/g, '');
                         const parsedResponse = JSON.parse(cleanedContent);
-                        // CAMBIO: Campos esperados del JSON y asignación a elementos
+                        
                         if (parsedResponse.texto_profecia && parsedResponse.titulo_profecia && parsedResponse.interpretacion_profecia) {
                             prophecyTextOutputParagraph.textContent = parsedResponse.texto_profecia;
                             prophecyTitleOutputParagraph.textContent = parsedResponse.titulo_profecia;
@@ -810,7 +811,7 @@ Genera la profecía para el tema: "${userText}" con el nivel de misticismo ${com
                             displayHistoryForTerm(userText); 
                         } else { throw new Error("Campos esperados no encontrados en JSON de IA."); }
                     } catch (jsonError) {
-                        // CAMBIO: Salida en caso de error JSON
+                        
                         prophecyTextOutputParagraph.textContent = rawContent; 
                         apiErrorOutput.textContent = `Error procesando respuesta de IA: ${jsonError.message}. Se muestra contenido crudo. Revisa la consola (F12).`;
                         apiErrorOutput.style.display = 'block';
@@ -819,11 +820,11 @@ Genera la profecía para el tema: "${userText}" con el nivel de misticismo ${com
                         prophecySymbolSection.style.display = 'none';
                         prophecyInterpretationOutputParagraph.textContent = "...";
                         prophecyDetailsContainer.style.display = 'none';
-                        console.error("[ProfeciaGen] Error parseando JSON de IA o JSON incompleto:", jsonError, "Contenido crudo:", rawContent); // CAMBIO
+                        console.error("[ProfeciaGen] Error parseando JSON de IA o JSON incompleto:", jsonError, "Contenido crudo:", rawContent); 
                     }
                 } else { throw new Error("Respuesta de IA no tuvo el formato esperado (sin choices válidas)."); }
             } catch (error) {
-                // CAMBIO: Mensajes de error
+                
                 apiErrorOutput.textContent = `Error al revelar la profecía: ${error.message}. Revisa la consola (F12).`;
                 apiErrorOutput.style.display = 'block';
                 prophecyTextOutputParagraph.textContent = 'Error al revelar. Intenta de nuevo o revisa tu API Key.';
@@ -832,7 +833,7 @@ Genera la profecía para el tema: "${userText}" con el nivel de misticismo ${com
                 prophecySymbolSection.style.display = 'none';
                 prophecyInterpretationOutputParagraph.textContent = "...";
                 prophecyDetailsContainer.style.display = 'none';
-                console.error("[ProfeciaGen] Error en generación:", error); // CAMBIO
+                console.error("[ProfeciaGen] Error en generación:", error); 
             } finally {
                 isGenerating = false;
                 loadingIndicator.style.display = 'none';
@@ -848,7 +849,7 @@ Genera la profecía para el tema: "${userText}" con el nivel de misticismo ${com
             historySection.style.display = 'none';
             updateAllButtonStates(); 
         }
-        console.log('[ProfeciaGen][Inicialización] Aplicación inicializada. currentApiKey:', currentApiKey); // CAMBIO
+        console.log('[ProfeciaGen][Inicialización] Aplicación inicializada. currentApiKey:', currentApiKey); 
     });
 </script>
 
