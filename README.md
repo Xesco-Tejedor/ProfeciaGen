@@ -12,8 +12,7 @@ No cal invocar cap ritual ni instal·lar res. Pots començar a desxifrar el futu
 
 Accedeix a la Demo Online Fent Clic Aquí
 
-[Aquí va una captura de pantalla o un GIF impressionant de l'aplicació en funcionament!]
-
+![profecia](/assets/profecia.jpg)
 ✨ Característiques Principals
 
 ✨ Interfície Mística i Intuïtiva: Introdueix sobre què vols una visió, tria el to (Críptic, Èpic, Fosc...), l'estil (Vers o Prosa) i la llargada desitjada.
