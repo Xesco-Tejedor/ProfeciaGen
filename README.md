@@ -10,9 +10,10 @@ Benvingut/da a ProfeciaGen, l'eina web on el vel entre el present i el futur es 
 
 No cal invocar cap ritual ni instal·lar res. Pots començar a desxifrar el futur a l'instant accedint a la demo online.
 
-Accedeix a la Demo Online Fent Clic Aquí
+Accedeix a la Demo Online Fent [Clic Aquí](https://xesco-tejedor.github.io/profeciaGen/)
 
 ![profecia](/assets/profecia.jpg)
+
 ✨ Característiques Principals
 
 ✨ Interfície Mística i Intuïtiva: Introdueix sobre què vols una visió, tria el to (Críptic, Èpic, Fosc...), l'estil (Vers o Prosa) i la llargada desitjada.
